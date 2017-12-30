@@ -5,5 +5,6 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'mongodb' => require(__DIR__. '/mongodb.php'),
     ],
 ];

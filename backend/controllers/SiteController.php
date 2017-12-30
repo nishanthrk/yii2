@@ -1,7 +1,9 @@
 <?php
 namespace backend\controllers;
 
+use common\models\Log;
 use Yii;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -70,6 +72,10 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $log = new Log();
+        $log->action = 'location';
+        $log->data = Json::encode(['name' => 'nishanth']);
+        $log->save();
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
